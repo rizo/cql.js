@@ -221,8 +221,8 @@ function decodeResultRowTypes(s::IOBuffer)
     name       = decodeString(s);
     kind       = ntoh(read(s, Uint16)); 
     key_type   = kind == 0x21 ?  ntoh(read(s, Uint16)) : nothing;
-    sub_type   = kind in {0x20, 0x21, 0x22} ? ntoh(read(s, Uint16))
-                                            : nothing; 
+    sub_type   = kind in {0x20, 0x21, 0x22} ? ntoh(read(s, Uint16)) :
+                                              nothing; 
     types[col] = (kind, sub_type, key_type);
   end
   types
